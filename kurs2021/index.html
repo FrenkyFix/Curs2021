@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал оценок</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="load-tab" data-bs-toggle="tab" data-bs-target="#load" type="button"
+                role="tab" aria-controls="load" aria-selected="true">Загрузить</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tabular-output-tab" data-bs-toggle="tab" data-bs-target="#tabular-output" type="button"
+                role="tab" aria-controls="tabular-output" aria-selected="false">Таблица</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="graphical-output-tab" data-bs-toggle="tab" data-bs-target="#graphical-output" type="button"
+                role="tab" aria-controls="graphical-output" aria-selected="false">График</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="graphical-output-tab" data-bs-toggle="tab" data-bs-target="#help" type="button"
+                role="tab" aria-controls="help" aria-selected="false">Помощь</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button"
+                role="tab" aria-controls="about" aria-selected="false">О разработчике</button>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="load" role="tabpanel" aria-labelledby="load-tab">
+            <label>Ваш файл</label>
+            <input type="file" id="fileInput" accept=".csv,.txt,.xlsx" style="padding-bottom: 15px;" />
+
+            <table class="tableData" id="tableRoot"></table>
+        </div>
+        <div class="tab-pane" id="tabular-output" role="tabpanel" aria-labelledby="tabular-output-tab">
+          <label>Ваш файл</label>
+          <input type="file" id="fileInputTabularOutput" accept=".csv" style="padding-bottom: 15px;" />
+          <table class="tableData" id="tableRootTabularOutput"></table>
+          <br>
+          <table class="tableData" id="tableRootTabularOutput2"></table>
+        </div>
+        <div class="tab-pane" id="graphical-output" role="tabpanel" aria-labelledby="graphical-output-tab">
+          <p>
+            <canvas id="bar-chart-grouped-classes" width="800" height="450"></canvas>
+          </p>
+          <p>
+            <canvas id="bar-chart-grouped-disciplines" width="800" height="450"></canvas>
+          </p>
+        </div>
+        <div class="tab-pane" id="help" role="tabpanel" aria-labelledby="help-tab">
+            <table id="tableHelp" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 150px;">Вкладка</th>
+                    <th>Описание</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Загрузить</td>
+                    <td>Загрузить таблицы(в форматах .сsv, .txt, .xlsx)</td>
+                  </tr>
+                  <tr>
+                    <td>Таблица</td>
+                    <td>Вывести статистику в табличном виде</td>
+                  </tr>
+                  <tr>
+                    <td>График</td>
+                    <td>Вывести статистику в графическом виде</td>
+                  </tr>
+                  <tr>
+                    <td>Помощь</td>
+                    <td>Информация о вкладках</td>
+                  </tr>
+                  <tr>
+                    <td>О разработчике</td>
+                    <td>Информация о разработчике</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="tab-pane" id="about" role="tabpanel" aria-labelledby="about-tab">
+          <div id="about-text">
+            <p class="fs-2">
+              Разработчик: Егоренко Н.И.,<br> студент группы ИА-031
+            </p>
+            <p>
+              <img src="img/me.jpg" alt="image" class="img-thumbnail" width="500" height="500" title="Егоренко Н.И. (Разработчик)">
+            </p>
+            <p>
+              Почта: <a href="mailto: kotkit555@gmail.com">kotkit555@gmail.com</a>
+            </p>
+            <p>
+              Телефон: <a href="tel: +79137832577">+79137832577</a>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Required to work with the extension .csv -->
+    <script src="js/papaparse.min.js"></script>
+    <!-- Required to work with the extension .xlsx -->
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+    <!-- Required for working with graphs -->
+    <script src="js/charts.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
